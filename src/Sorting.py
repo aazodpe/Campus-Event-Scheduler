@@ -12,58 +12,39 @@ Algorithms:
 
 '''
 
-def insertion_sort(events, sort_by1, sort_by2=None):
-    '''Parameters: 
-    
-    sort_by1 (str): Name of the dictionary key by which the list is to be sorted. To sort by date, 
-                    call insertion_sort(events, 'date')
-    sort_by2 (str): Default None, secondary sorting parameter to sort by time of day. Call 
-                    insertion_sort(events, 'date', 'time')
+# Insertion Sort
 
-    '''
-    
+def insertion_sort(events, sort_by1, sort_by2):
+
     for i in range(1, len(events)):
         key = events[i]
-        j = i - 1
+        j = i -1
 
-        while j >= 0 and (events[j][sort_by1], events[j][sort_by2]) > (key[sort_by1], key[sort_by2]):
-            events[j + 1] = events[j]
-            j -= 1
+        while j >= 0 and (events[j][sort_by1],events[j][sort_by2]) > (key[sort_by1],key[sort_by2]):
+          events[j+1] = events[j]
+          j -= 1
 
-        events[j + 1] = key
+          events[j+1] = key
 
     return events
 
-
-
 # Merge sort
-def merge_sort(events, sort_by1, sort_by2):
-    '''
-    Note: When calling this function with an instance of the Events_List class, events parameter 
-          must be events.data
+def merge_sort(events, sort_by, sort_by2):
 
-    Parameters: 
-        events: events.data 
-        sort_by1 (str): Name of the dictionary key by which the list is to be sorted. To sort by date, 
-                    call insertion_sort(events, 'date')
-        sort_by2 (str): Default None, secondary sorting parameter to sort by time of day. Call 
-                    insertion_sort(events, 'date', 'time') 
-    
-    '''
     #splits events into individual arrays each with length 1.
     if len(events)>1:
       mid = len(events) // 2
       left = events[:mid]
       right = events[mid:]
 
-      left_sorted = merge_sort(left,sort_by1,sort_by2)
-      right_sorted = merge_sort(right,sort_by1,sort_by2)
+      left_sorted = merge_sort(left,sort_by,sort_by2)
+      right_sorted = merge_sort(right,sort_by,sort_by2)
 
       i = j = k = 0
 
       #compare each array and place back into events
       while i < len(left) and j < len(right):
-        if (left[i][sort_by1],left[i][sort_by2]) <=(right[j][sort_by1],right[j][sort_by2]):
+        if (left[i][sort_by],left[i][sort_by2]) <=(right[j][sort_by],right[j][sort_by2]):
           events[k]=left[i]
           i+=1
 

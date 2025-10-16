@@ -1,4 +1,7 @@
 from datetime import datetime
+import time 
+from datetime import timedelta
+
 
 # Functions below are designed to work with arrays of dictionaries(each event is a dictionary, and list of events is an array)
 
@@ -7,15 +10,22 @@ from datetime import datetime
 # These functions cannot work with linked lists as indexing is not possible. It is not entirely impossible, but more complex to implement.
 
 def linear_search(events, event_id):
+    start_time = time.time()
     for e in events:
         if e["id"] == event_id:
+            elapsed = time.time() - start_time
+            print(f'Event found. Time elapsed: {elapsed}')
             return e
+    
+    # elapsed = time.time() - start_time
+    # print(f'Event found. Time elapsed: {elapsed}')
     return None
     # Linear Search complexities:
     # Time Complexity: O(n)
     # Space Complexity: O(1)
 
 def binary_search(events, event_id):
+    start = time.time()
     low = 0
     high = len(events) - 1
     while low<=high:
@@ -23,11 +33,14 @@ def binary_search(events, event_id):
         mid_id = events[mid]["id"]
 
         if mid_id == event_id:
+            end = time.time() - start
+            print(f'Found. Time elapsed: {end}')
             return events[mid]
         elif mid_id < event_id:
             low = mid + 1
         else:
             high = mid - 1
+    print("Could not find event")
     return None
 
     # Binary Search complexities:
@@ -36,7 +49,7 @@ def binary_search(events, event_id):
 
 def find_conflicts(events):
     def parse_datetime(event):
-        date_string = f"{event["date"]} {event["time"]}"
+        date_string = f"{event['date']} {event['time']}"
         format_string = "%Y-%m-%d %H:%M"
         return datetime.strptime(date_string, format_string)
 
@@ -48,32 +61,11 @@ def find_conflicts(events):
 
         if e1['date'] == e2['date']:
             t1_start = parse_datetime(e1)
-            t1_end = t1_start.replace(hour=t1_start.hour + 1)
+            t1_end = t1_start + timedelta(hours=1)            
             t2_start = parse_datetime(e2)
-
             if t2_start < t1_end:
-                print(f"{e1['title']} and {e2['title']} are conflicting on {e1['date']}")
+                print(f"{e1['id']} and {e2['id']} are conflicting on {e1['date']}")
 
     # Complexities for this function:
     # Time complexity: O(nlogn) due to sorting
     # Space complexity: O(n)
-
-
-# Driver code below, remove before merging with other functions.
-
-if __name__ == "__main__":
-    events = [
-        {"id": 101, "title": "Hackathon", "date": "2025-11-15", "time": "10:00", "location": "Auditorium"},
-        {"id": 102, "title": "Math Exam", "date": "2025-11-15", "time": "10:30", "location": "Room 204"},
-        {"id": 103, "title": "Music Night", "date": "2025-11-16", "time": "18:00", "location": "Main Hall"},
-    ]
-
-    print("Linear Search for ID=103:")
-    print(linear_search(events, 103))
-
-    print("\nBinary Search for ID=102 (requires sorted by ID):")
-    sorted_by_id = sorted(events, key=lambda e: e["id"])
-    print(binary_search(sorted_by_id, 102))
-
-    print("\nChecking for event conflicts:")
-    find_conflicts(events)
