@@ -16,11 +16,7 @@ CAMPUS-EVENT-SCHEDULER/
 │   ├── Sorting.py                 # Provides sorting algorithms (e.g., merge, quick, bubble)
 │   ├── Search_and_Conflict.py     # Detects scheduling conflicts (sequential + parallelized)
 │
-├── testing/
-│   ├── Sorting_Test.py            # Unit tests for sorting algorithms
-│
 ├── Final_Report.ipynb             # Detailed report notebook
-├── Report_Notebook.ipynb          # Exploratory and analysis notebook
 └── Readme.md                      # Project documentation
 ```
 
