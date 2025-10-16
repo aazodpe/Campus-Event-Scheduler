@@ -29,7 +29,6 @@ CAMPUS-EVENT-SCHEDULER/
 -  **Sorting Algorithms** – Implements multiple sorting methods to order events by date/time.
 -  **Conflict Detection** – Identify overlapping or conflicting events.
 -  **Parallelized Conflict Search** – Uses Python’s multiprocessing to speed up conflict detection.
--  
 ---
 
 ## Core Concepts
