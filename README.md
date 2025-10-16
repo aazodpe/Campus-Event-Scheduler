@@ -1,11 +1,11 @@
-# Campus Event Scheduler
+# 🗓️ Campus Event Scheduler
 
-## Overview
+## 📘 Overview
 The **Campus Event Scheduler** is a Python-based application that helps manage, sort, and detect conflicts among scheduled campus events. It supports both **array-based** and **linked list-based** data structures for storing event data, allowing comparisons of performance and efficiency. Additionally, a **parallelized conflict detection** module enhances performance for large datasets.
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 CAMPUS-EVENT-SCHEDULER/
@@ -16,22 +16,28 @@ CAMPUS-EVENT-SCHEDULER/
 │   ├── Sorting.py                 # Provides sorting algorithms (e.g., merge, quick, bubble)
 │   ├── Search_and_Conflict.py     # Detects scheduling conflicts (sequential + parallelized)
 │
+├── testing/
+│   ├── Sorting_Test.py            # Unit tests for sorting algorithms
+│
 ├── Final_Report.ipynb             # Detailed report notebook
+├── Report_Notebook.ipynb          # Exploratory and analysis notebook
 └── Readme.md                      # Project documentation
 ```
 
 ---
 
-## Features
+## ⚙️ Features
 
--  **Event Management** – Create, view, and organize campus events.
--  **Linked List & Array Support** – Compare event operations using different data structures.
--  **Sorting Algorithms** – Implements multiple sorting methods to order events by date/time.
--  **Conflict Detection** – Identify overlapping or conflicting events.
--  **Parallelized Conflict Search** – Uses Python’s multiprocessing to speed up conflict detection.
+- 📅 **Event Management** – Create, view, and organize campus events.
+- 🔗 **Linked List & Array Support** – Compare event operations using different data structures.
+- 🧩 **Sorting Algorithms** – Implements multiple sorting methods to order events by date/time.
+- ⚔️ **Conflict Detection** – Identify overlapping or conflicting events.
+- 🚀 **Parallelized Conflict Search** – Uses Python’s multiprocessing to speed up conflict detection.
+- 🧪 **Testing Suite** – Unit tests to validate sorting and searching functionalities.
+
 ---
 
-## Core Concepts
+## 🧠 Core Concepts
 
 | Module | Description |
 |--------|--------------|
@@ -42,7 +48,7 @@ CAMPUS-EVENT-SCHEDULER/
 
 ---
 
-## How to Run
+## 🚀 How to Run
 
 1. Clone this repository:
    ```bash
@@ -62,22 +68,25 @@ CAMPUS-EVENT-SCHEDULER/
 
 ---
 
-## Future Improvements
+## 🧪 Running Tests
+To execute all tests:
+```bash
+python -m unittest discover testing
+```
+
+---
+
+## 📈 Future Improvements
 - Add a GUI or web dashboard using Flask/Streamlit.
 - Integrate with a real database (e.g., SQLite/PostgreSQL).
 - Implement user authentication for personalized scheduling.
 
 ---
 
-## Contributors
-**Atharva Zodpe**: Designed the searching algorithms and the conflict detection function, organized code and resolved import issuees occuring across modules
-
-**Griffin Keener**: Compiled and organized code into Github and Final notebook. I modified the code from all of the packages to be user-friendly. Worked on visualizations, and developed the array-based data structure.
-
-**Sam Goodell**: Built linked list, linked list methods, and linked list sorting algorithms.
-
-**Sofie Appel**: I created the array sorting algorithms and completed the runtime trials. I also determined and calculated the memory usage for the scalability challenge.
+## 👨‍💻 Contributors
+**Atharva Zodpe** – Developer & Author
 
 ---
 
-
+## 📜 License
+This project is released under the MIT License.
